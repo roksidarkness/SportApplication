@@ -1,8 +1,14 @@
 package com.roksidark.foosballmatchesapplication
 
-import android.app.Application
-import com.roksidark.foosballmatchesapplication.di.DaggerApplicationComponent
+import com.roksidark.foosballmatchesapplication.di.component.DaggerAppComponent
+import dagger.android.AndroidInjector
+import dagger.android.DaggerApplication
 
-class FoosballApp: Application() {
-    val appComponent = DaggerApplicationComponent.create()
+class FoosballApp: DaggerApplication() {
+    private val applicationInjector = DaggerAppComponent
+        .builder()
+        .application(this)
+        .build()
+
+    override fun applicationInjector(): AndroidInjector<out DaggerApplication> = applicationInjector
 }
