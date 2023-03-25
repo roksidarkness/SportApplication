@@ -1,6 +1,6 @@
 package com.roksidark.foosballmatchesapplication.data.model.entity
 
-data class ItemResult(
+data class ItemResultGame(
     val date: Long,
     val firstPerson: String,
     val firstScore: Int,

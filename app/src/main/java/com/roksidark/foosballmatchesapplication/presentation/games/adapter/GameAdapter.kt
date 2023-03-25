@@ -6,11 +6,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.roksidark.foosballmatchesapplication.R
-import com.roksidark.foosballmatchesapplication.data.model.entity.ItemResult
+import com.roksidark.foosballmatchesapplication.data.model.entity.ItemResultGame
 
 class GameAdapter: RecyclerView.Adapter<GameAdapter.ViewHolder>() {
 
-    private var items: List<ItemResult> = mutableListOf()
+    private var items: List<ItemResultGame> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
         LayoutInflater.from(parent.context).inflate(
@@ -30,12 +30,12 @@ class GameAdapter: RecyclerView.Adapter<GameAdapter.ViewHolder>() {
         return position
     }
 
-    fun setItems(itemResult: List<ItemResult>) {
-        items = itemResult
+    fun setItems(itemResultGame: List<ItemResultGame>) {
+        items = itemResultGame
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(item: ItemResult) = with(itemView) {
+        fun bind(item: ItemResultGame) = with(itemView) {
             val txtItem = findViewById<TextView>(R.id.textview_item)
             txtItem.text = item.firstPerson + item.firstScore +" - "+item.secondPerson+ item.secondScore
         }

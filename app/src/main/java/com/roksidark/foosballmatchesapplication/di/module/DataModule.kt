@@ -4,6 +4,7 @@ import com.roksidark.foosballmatchesapplication.data.datasource.DataStore
 import com.roksidark.foosballmatchesapplication.data.datasource.LocalDataStore
 import com.roksidark.foosballmatchesapplication.data.repository.GameRepositoryImpl
 import com.roksidark.foosballmatchesapplication.domain.repository.GamesRepository
+import com.roksidark.foosballmatchesapplication.domain.usecase.AddGameUseCase
 import com.roksidark.foosballmatchesapplication.domain.usecase.GamesUseCases
 import com.roksidark.foosballmatchesapplication.domain.usecase.GetGamesUseCase
 import dagger.Binds
@@ -31,7 +32,8 @@ object DataModule {
     @Provides
     fun provideGamesUseCases(gamesRepository: GamesRepository): GamesUseCases {
         return GamesUseCases(
-            getGamesUseCase = GetGamesUseCase(gamesRepository)
+            getGamesUseCase = GetGamesUseCase(gamesRepository),
+            addGameUseCase = AddGameUseCase(gamesRepository)
         )
     }
 }

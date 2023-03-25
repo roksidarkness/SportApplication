@@ -3,10 +3,13 @@
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">Games</string>
-    <string name="second_fragment_label">Second Fragment</string>
+    <string name="second_fragment_label">Add Game</string>
     <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- Add game fragment -->
+    <string name="label_add_game">Add Game</string>
+    <string name="label_add_game_first_person">First person</string>
+    <string name="label_add_game_second_person">Second person</string>
+    <string name="label_add_game_score">Score</string>
+
 </resources>
