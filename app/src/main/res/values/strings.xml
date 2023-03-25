@@ -2,14 +2,19 @@
     <string name="app_name">FoosballMatchesApplication</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">Games</string>
-    <string name="second_fragment_label">Add Game</string>
+    <string name="first_fragment_label">Foosball</string>
+    <string name="second_fragment_label">Foosball</string>
     <string name="next">Next</string>
 
-    <!-- Add game fragment -->
+    <!-- Add/Edit game fragment -->
     <string name="label_add_game">Add Game</string>
     <string name="label_add_game_first_person">First person</string>
     <string name="label_add_game_second_person">Second person</string>
     <string name="label_add_game_score">Score</string>
+    <string name="label_add_game_fragment_btn_add">Add Game</string>
+    <string name="label_add_game_fragment_btn_edit">Edit Game</string>
+
+    <!-- Games fragment-->
+    <string name="label_games_fragment">%1$s %2$d - %3$s %4$d</string>
 
 </resources>

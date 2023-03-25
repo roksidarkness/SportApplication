@@ -1,16 +1,15 @@
 package com.roksidark.foosballmatchesapplication.presentation.games
 
-import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.roksidark.foosballmatchesapplication.FoosballApp
 import com.roksidark.foosballmatchesapplication.R
 import com.roksidark.foosballmatchesapplication.databinding.FragmentGamesBinding
 import com.roksidark.foosballmatchesapplication.presentation.MainViewModel
@@ -49,11 +48,19 @@ class GamesFragment : DaggerFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnAddItem.setOnClickListener { _ ->
-            findNavController().navigate(R.id.action_GamesFragment_to_AddGameFragment)
+            val bundle = Bundle()
+            bundle.putBoolean("isAdd", true)
+            findNavController().navigate(R.id.action_GamesFragment_to_AddGameFragment, bundle)
         }
-
+        val adapter = GameAdapter()
         binding.listGames.layoutManager = LinearLayoutManager(requireContext())
-        binding.listGames.adapter = GameAdapter()
+        binding.listGames.adapter = adapter
+        adapter.onItemClick = { item ->
+            val bundle = Bundle()
+            bundle.putBoolean("isAdd", false)
+            bundle.putParcelable("item", item)
+            findNavController().navigate(R.id.action_GamesFragment_to_AddGameFragment, bundle)
+        }
 
         viewModel.gamesLiveData.observe(viewLifecycleOwner) { results ->
             binding.progressBar.visibility = View.GONE

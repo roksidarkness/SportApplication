@@ -7,10 +7,10 @@ import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
 
-class AddGameUseCase @Inject constructor(private val gamesRepository: GamesRepository) {
+class UpdateGameUseCase @Inject constructor(private val gamesRepository: GamesRepository) {
 
     fun invoke(game: Game): Single<List<Game>> {
-        return gamesRepository.addGame(
+        return gamesRepository.updateGame(
             Game(
                 game.date,
                 game.firstPerson,

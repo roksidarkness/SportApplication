@@ -7,6 +7,7 @@ import com.roksidark.foosballmatchesapplication.domain.repository.GamesRepositor
 import com.roksidark.foosballmatchesapplication.domain.usecase.AddGameUseCase
 import com.roksidark.foosballmatchesapplication.domain.usecase.GamesUseCases
 import com.roksidark.foosballmatchesapplication.domain.usecase.GetGamesUseCase
+import com.roksidark.foosballmatchesapplication.domain.usecase.UpdateGameUseCase
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -33,7 +34,8 @@ object DataModule {
     fun provideGamesUseCases(gamesRepository: GamesRepository): GamesUseCases {
         return GamesUseCases(
             getGamesUseCase = GetGamesUseCase(gamesRepository),
-            addGameUseCase = AddGameUseCase(gamesRepository)
+            addGameUseCase = AddGameUseCase(gamesRepository),
+            updateGameUseCase = UpdateGameUseCase(gamesRepository)
         )
     }
 }

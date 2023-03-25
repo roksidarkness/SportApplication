@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F6F2F2"
     tools:context=".presentation.addgame.AddGameFragment">
 
     <androidx.cardview.widget.CardView
@@ -52,6 +53,7 @@
                 android:id="@+id/edittext_first_person_score"
                 android:layout_width="60dp"
                 android:layout_marginLeft="16dp"
+                android:inputType="numberDecimal"
                 android:layout_height="wrap_content"/>
 
             <TextView
@@ -83,6 +85,7 @@
                 android:id="@+id/edittext_second_person_score"
                 android:layout_width="60dp"
                 android:layout_marginLeft="16dp"
+                android:inputType="numberDecimal"
                 android:layout_height="wrap_content"/>
 
         </LinearLayout>
