@@ -14,6 +14,8 @@ import com.roksidark.foosballmatchesapplication.R
 import com.roksidark.foosballmatchesapplication.databinding.FragmentGamesBinding
 import com.roksidark.foosballmatchesapplication.presentation.MainViewModel
 import com.roksidark.foosballmatchesapplication.presentation.games.adapter.GameAdapter
+import com.roksidark.foosballmatchesapplication.util.Constant.IS_ADD
+import com.roksidark.foosballmatchesapplication.util.Constant.ITEM
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
@@ -49,7 +51,7 @@ class GamesFragment : DaggerFragment() {
 
         binding.btnAddItem.setOnClickListener { _ ->
             val bundle = Bundle()
-            bundle.putBoolean("isAdd", true)
+            bundle.putBoolean(IS_ADD, true)
             findNavController().navigate(R.id.action_GamesFragment_to_AddGameFragment, bundle)
         }
         val adapter = GameAdapter()
@@ -57,15 +59,14 @@ class GamesFragment : DaggerFragment() {
         binding.listGames.adapter = adapter
         adapter.onItemClick = { item ->
             val bundle = Bundle()
-            bundle.putBoolean("isAdd", false)
-            bundle.putParcelable("item", item)
+            bundle.putBoolean(IS_ADD, false)
+            bundle.putParcelable(ITEM, item)
             findNavController().navigate(R.id.action_GamesFragment_to_AddGameFragment, bundle)
         }
 
         viewModel.gamesLiveData.observe(viewLifecycleOwner) { results ->
             binding.progressBar.visibility = View.GONE
-            (binding.listGames.adapter as GameAdapter).setItems(results)
-
+            adapter.setItems(results)
         }
     }
 

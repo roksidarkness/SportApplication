@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -13,13 +14,15 @@ import com.roksidark.foosballmatchesapplication.R
 import com.roksidark.foosballmatchesapplication.data.model.entity.Game
 import com.roksidark.foosballmatchesapplication.databinding.FragmentAddGameBinding
 import com.roksidark.foosballmatchesapplication.presentation.MainViewModel
+import com.roksidark.foosballmatchesapplication.util.Constant.IS_ADD
+import com.roksidark.foosballmatchesapplication.util.Constant.ITEM
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
-class AddGameFragment : DaggerFragment() {
+class AddEditGameFragment : DaggerFragment() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -47,16 +50,16 @@ class AddGameFragment : DaggerFragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        val isAdd = arguments?.getBoolean("isAdd")
+        val isAdd = arguments?.getBoolean(IS_ADD)
         if (isAdd == true) {
-            binding.buttonSecond.setText(getString(R.string.label_add_game_fragment_btn_add))
+            binding.buttonSecond.text = getString(R.string.label_add_game_fragment_btn_add)
             saveData(isAdd, null)
         }else{
-            binding.buttonSecond.setText(getString(R.string.label_add_game_fragment_btn_edit))
+            binding.buttonSecond.text = getString(R.string.label_add_game_fragment_btn_edit)
             val item = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                arguments?.getParcelable("item", Game::class.java)
+                arguments?.getParcelable(ITEM, Game::class.java)
             } else {
-                arguments?.getParcelable("item")
+                arguments?.getParcelable(ITEM)
             }
             item?.let{
                 binding.edittextFirstPerson.setText(it.firstPerson)
@@ -71,9 +74,9 @@ class AddGameFragment : DaggerFragment() {
 
     private fun saveData(isAdd: Boolean, date: Long?){
         binding.buttonSecond.setOnClickListener { _ ->
-            if (binding.edittextFirstPerson.text.isNotEmpty() ||
-                binding.edittextFirstPersonScore.text.isNotEmpty() ||
-                binding.edittextSecondPerson.text.isNotEmpty() ||
+            if (binding.edittextFirstPerson.text.isNotEmpty() &&
+                binding.edittextFirstPersonScore.text.isNotEmpty() &&
+                binding.edittextSecondPerson.text.isNotEmpty() &&
                 binding.edittextSecondPersonScore.text.isNotEmpty()
             ) {
                 if (isAdd){
@@ -95,8 +98,12 @@ class AddGameFragment : DaggerFragment() {
                         )
                     }
                 }
+                findNavController().navigate(R.id.action_AddGameFragment_to_GamesFragment)
             }
-            findNavController().navigate(R.id.action_AddGameFragment_to_GamesFragment)
+            else{
+                Toast.makeText(context, context?.getText(R.string.label_toast), Toast.LENGTH_SHORT).show()
+            }
+
         }
     }
 

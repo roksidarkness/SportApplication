@@ -1,25 +1,21 @@
-package com.roksidark.foosballmatchesapplication.presentation.games.adapter
+package com.roksidark.foosballmatchesapplication.presentation.rating.adapter
 
-import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.roksidark.foosballmatchesapplication.R
-import com.roksidark.foosballmatchesapplication.data.model.entity.Game
-import kotlin.properties.Delegates
+import com.roksidark.foosballmatchesapplication.data.model.entity.RatingGame
 
-class GameAdapter: RecyclerView.Adapter<GameAdapter.ViewHolder>() {
+class RatingAdapter: RecyclerView.Adapter<RatingAdapter.ViewHolder>() {
 
-    private var items: List<Game> = mutableListOf()
-    var onItemClick: ((Game) -> Unit)? = null
+    private var items: List<RatingGame> = mutableListOf()
+    var onItemClick: ((RatingGame) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
         LayoutInflater.from(parent.context).inflate(
-            R.layout.item_game, parent, false
+            R.layout.item_rating, parent, false
         )
     )
 
@@ -35,10 +31,8 @@ class GameAdapter: RecyclerView.Adapter<GameAdapter.ViewHolder>() {
         return position
     }
 
-    @SuppressLint("NotifyDataSetChanged")
-    fun setItems(game: List<Game>) {
+    fun setItems(game: List<RatingGame>) {
         items = game
-        notifyDataSetChanged()
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -49,11 +43,13 @@ class GameAdapter: RecyclerView.Adapter<GameAdapter.ViewHolder>() {
             }
         }
 
-        fun bind(item: Game) = with(itemView) {
-            val txtItem = findViewById<TextView>(R.id.textview_item)
-            txtItem.text = context.getString(R.string.label_games_fragment,
-                item.firstPerson, item.firstPersonScore, item.secondPerson, item.secondPersonScore
-            )
+        fun bind(item: RatingGame) = with(itemView) {
+            val txtItem = findViewById<TextView>(R.id.textview_person)
+            val txtItemWon = findViewById<TextView>(R.id.textview_games_won)
+            val txtItemFinished = findViewById<TextView>(R.id.textview_games_finished)
+            txtItem.text = item.person
+            txtItemWon.text = item.wonGames.toString()
+            txtItemFinished.text= item.finishedGames.toString()
         }
     }
 }

@@ -1,7 +1,8 @@
 package com.roksidark.foosballmatchesapplication.di.module
 
-import com.roksidark.foosballmatchesapplication.presentation.addgame.AddGameFragment
+import com.roksidark.foosballmatchesapplication.presentation.addgame.AddEditGameFragment
 import com.roksidark.foosballmatchesapplication.presentation.games.GamesFragment
+import com.roksidark.foosballmatchesapplication.presentation.rating.RatingDialogFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -11,5 +12,8 @@ abstract class FragmentBuilder {
     abstract fun bindGamesFragment(): GamesFragment
 
     @ContributesAndroidInjector
-    abstract fun bindAddGameFragment(): AddGameFragment
+    abstract fun bindAddGameFragment(): AddEditGameFragment
+
+    @ContributesAndroidInjector
+    abstract fun bindRatingDialogFragment(): RatingDialogFragment
 }

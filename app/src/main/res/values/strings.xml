@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">FoosballMatchesApplication</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_ratings">Rating by number of games</string>
+    <string name="action_ratings_by_won">Rating by games won</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">Foosball</string>
     <string name="second_fragment_label">Foosball</string>
@@ -13,6 +14,7 @@
     <string name="label_add_game_score">Score</string>
     <string name="label_add_game_fragment_btn_add">Add Game</string>
     <string name="label_add_game_fragment_btn_edit">Edit Game</string>
+    <string name="label_toast">Input all fields</string>
 
     <!-- Games fragment-->
     <string name="label_games_fragment">%1$s %2$d - %3$s %4$d</string>

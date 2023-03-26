@@ -14,10 +14,14 @@
         <action
             android:id="@+id/action_GamesFragment_to_AddGameFragment"
             app:destination="@id/SecondFragment" />
+
+        <action
+            android:id="@+id/action_GamesFragment_to_RatingDialog"
+            app:destination="@id/ratingDialog" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.roksidark.foosballmatchesapplication.presentation.addgame.AddGameFragment"
+        android:name="com.roksidark.foosballmatchesapplication.presentation.addgame.AddEditGameFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_add_game">
 
@@ -25,4 +29,13 @@
             android:id="@+id/action_AddGameFragment_to_GamesFragment"
             app:destination="@id/GamesFragment" />
     </fragment>
+
+    <dialog
+        android:id="@+id/ratingDialog"
+        android:name="com.roksidark.foosballmatchesapplication.presentation.rating.RatingDialogFragment"
+        tools:layout="@layout/fragment_dialog_rating" >
+        <action
+            android:id="@+id/action_RatingDialog_to_GamesFragment"
+            app:destination="@id/GamesFragment" />
+    </dialog>
 </navigation>
