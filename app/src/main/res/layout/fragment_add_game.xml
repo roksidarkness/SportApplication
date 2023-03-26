@@ -35,8 +35,11 @@
                 android:id="@+id/textview_first_person"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="6dp"
                 android:text="@string/label_add_game_first_person"
+                android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
 
@@ -44,6 +47,7 @@
                 android:id="@+id/edittext_first_person"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp" />
 
@@ -52,8 +56,11 @@
                 android:id="@+id/textview_first_person_score"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="6dp"
                 android:text="@string/label_add_game_score"
+                android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
 
@@ -62,14 +69,18 @@
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
+                android:layout_marginTop="6dp"
                 android:inputType="numberDecimal" />
 
             <TextView
                 android:id="@+id/textview_second_person"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="6dp"
                 android:text="@string/label_add_game_second_person"
+                android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
 
@@ -78,14 +89,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp" />
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="6dp"/>
 
             <TextView
                 android:id="@+id/textview_second_person_score"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="6dp"
                 android:text="@string/label_add_game_score"
+                android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
 
@@ -94,6 +109,8 @@
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
                 android:inputType="numberDecimal" />
 
         </LinearLayout>

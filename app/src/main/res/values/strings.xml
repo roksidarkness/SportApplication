@@ -13,7 +13,7 @@
     <string name="label_add_game_second_person">Second person</string>
     <string name="label_add_game_score">Score</string>
     <string name="label_add_game_fragment_btn_add">Add Game</string>
-    <string name="label_add_game_fragment_btn_edit">Edit Game</string>
+    <string name="label_add_game_fragment_btn_edit">Save</string>
     <string name="label_toast">Input all fields</string>
 
     <!-- Games fragment-->
