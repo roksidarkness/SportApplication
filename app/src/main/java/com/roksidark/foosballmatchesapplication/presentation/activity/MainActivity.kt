@@ -42,6 +42,7 @@ class MainActivity : DaggerAppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
+        viewModel.getListGames()
     }
 
     override fun onSupportNavigateUp(): Boolean {

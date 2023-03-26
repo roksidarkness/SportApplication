@@ -32,7 +32,6 @@ class MainViewModel@Inject constructor(
     val gamesRatingByWonLiveData: LiveData<List<RatingGame>> = _gamesRatingByWonLiveData
     
     init{
-        getListGames()
         compositeDisposable.add(
             ratingPublishSubject
             .map { gamesToRatingGames(it) }
@@ -55,7 +54,7 @@ class MainViewModel@Inject constructor(
         )
     }
 
-    private fun getListGames() {
+    fun getListGames() {
         compositeDisposable.add(
             gamesUseCase.getGamesUseCase.invoke().subscribe({ games ->
                 _gamesLiveData.postValue(games)
